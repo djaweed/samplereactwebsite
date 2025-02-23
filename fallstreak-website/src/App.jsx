@@ -1,11 +1,16 @@
-import FallstreakCloud from './components/FallstreakCloud'
-
-// Remove any old CSS imports like "./App.css"
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import FallstreakCloud from './components/FallstreakCloud';
+import AboutPage from './components/AboutPage';
 
 function App() {
   return (
-    <FallstreakCloud />
-  )
+    <Router>
+      <Routes>
+        <Route path="/" element={<FallstreakCloud />} />
+        <Route path="/about" element={<AboutPage />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
