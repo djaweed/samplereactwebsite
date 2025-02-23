@@ -1,61 +1,94 @@
 import React from 'react';
-import { FaAws } from "react-icons/fa";
-import { MdCloud, MdStorage, MdSecurity, MdCode, MdBusiness } from "react-icons/md";
-const TechnologyProficiency = () => {
-const technologies = [
- {
-category: "Cloud Platforms",
-items: [
- { name: "AWS", icon: FaAws },
- { name: "Azure", icon: MdCloud },
- { name: "Google Cloud", icon: MdCloud }
- ]
- },
- {
-category: "Infrastructure & DevOps",
-items: [
- { name: "Terraform", icon: MdStorage },
- { name: "Kubernetes", icon: MdStorage },
- { name: "Jenkins", icon: MdCode }
- ]
- },
- {
-category: "Security & Compliance",
-items: [
- { name: "Cloud Security", icon: MdSecurity },
- { name: "Enterprise Solutions", icon: MdBusiness }
- ]
- }
- ];
-return (
-<div className="min-h-screen bg-gradient-to-b from-teal-950 to-emerald-950 text-white">
-<section className="bg-teal-900/30 py-24 border-y border-emerald-800/30">
-<div className="container mx-auto px-6">
-<h2 className="text-4xl font-bold text-center mb-16">Technology Stack</h2>
-<div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-{technologies.map((category) => (
-<div
-key={category.category}
-className="bg-teal-900/50 rounded-xl p-6 border border-emerald-800/30"
->
-<h3 className="text-xl font-semibold mb-6">{category.category}</h3>
-<div className="space-y-3">
-{category.items.map((tech) => (
-<div
-key={tech.name}
-className="flex items-center space-x-3 p-3 bg-teal-950/50 rounded-lg hover:bg-teal-950/70 transition-colors"
->
-<tech.icon className="w-6 h-6 text-yellow-600" />
-<span className="text-yellow-100/90">{tech.name}</span>
-</div>
- ))}
-</div>
-</div>
- ))}
-</div>
-</div>
-</section>
-</div>
- );
+
+const TechnologyStack = () => {
+  const technologies = [
+    {
+      category: "Infrastructure & Cloud",
+      items: [
+        { name: "AWS", icon: "/icons/AWS.svg" },
+        { name: "vSphere", icon: "/icons/vSphere.svg" },
+        { name: "Red Hat", icon: "/icons/Red-Hat.svg" },
+        { name: "Docker", icon: "/icons/Docker.svg" },
+        { name: "Kubernetes", icon: "/icons/Kubernetes.svg" }
+      ]
+    },
+    {
+      category: "DevOps & CI/CD",
+      items: [
+        { name: "Argo CD", icon: "/icons/Argo-CD.svg" },
+        { name: "GitLab", icon: "/icons/GitLab.svg" },
+        { name: "GitHub", icon: "/icons/GitHub.svg" },
+        { name: "Git", icon: "/icons/Git.svg" },
+        { name: "Ansible", icon: "/icons/Ansible.svg" }
+      ]
+    },
+    {
+      category: "Monitoring & Security",
+      items: [
+        { name: "Grafana", icon: "/icons/Grafana.svg" },
+        { name: "Prometheus", icon: "/icons/Prometheus.svg" },
+        { name: "Vault", icon: "/icons/HashiCorp-Vault.svg" },
+        { name: "Helm", icon: "/icons/Helm.svg" }
+      ]
+    },
+    {
+      category: "Programming & Frameworks",
+      items: [
+        { name: "Python", icon: "/icons/Python.svg" },
+        { name: "FastAPI", icon: "/icons/FastAPI.svg" },
+        { name: "Bash", icon: "/icons/Bash.svg" },
+        { name: "SQLAlchemy", icon: "/icons/SQLAlchemy.svg" }
+      ]
+    },
+    {
+      category: "Data & Storage",
+      items: [
+        { name: "PostgreSQL", icon: "/icons/PostgresSQL.svg" },
+        { name: "MySQL", icon: "/icons/MySQL.svg" },
+        { name: "MongoDB", icon: "/icons/MongoDB.svg" }
+      ]
+    },
+    {
+      category: "Infrastructure as Code",
+      items: [
+        { name: "Packer", icon: "/icons/Packer.svg" },
+        { name: "Terraform", icon: "/icons/HashiCorp-Terraform.svg" }
+      ]
+    }
+  ];
+
+  return (
+    <div className="bg-gradient-to-b from-teal-950 to-emerald-950 min-h-screen p-8">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-4xl font-bold text-white text-center mb-12">Technology Stack</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {technologies.map((category, index) => (
+            <div
+              key={index}
+              className="bg-teal-900/50 rounded-lg p-6 border border-emerald-800/30"
+            >
+              <h3 className="text-xl font-semibold text-white mb-4">{category.category}</h3>
+              <div className="space-y-4">
+                {category.items.map((tech, techIndex) => (
+                  <div
+                    key={techIndex}
+                    className="flex items-center space-x-3 p-3 bg-teal-950/50 rounded-lg hover:bg-teal-950/70 transition-colors"
+                  >
+                    <img 
+                      src={tech.icon} 
+                      alt={tech.name}
+                      className="w-8 h-8 text-yellow-400"
+                    />
+                    <span className="text-yellow-100">{tech.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 };
-export default TechnologyProficiency;
+
+export default TechnologyStack;
