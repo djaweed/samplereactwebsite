@@ -5,57 +5,83 @@ const TechnologyStack = () => {
     {
       category: "Infrastructure & Cloud",
       items: [
-        { name: "AWS", icon: "/icons/AWS.svg" },
-        { name: "vSphere", icon: "/icons/vSphere.svg" },
-        { name: "Red Hat", icon: "/icons/Red-Hat.svg" },
-        { name: "Docker", icon: "/icons/Docker.svg" },
-        { name: "Kubernetes", icon: "/icons/Kubernetes.svg" }
+        { name: "AWS", icon: "./icons/AWS.svg" },
+        { name: "vSphere", icon: "./icons/vSphere.svg" },
+        { name: "Red Hat", icon: "./icons/Red-Hat.svg" }
+      ]
+    },
+    {
+      category: "Containerization",
+      items: [
+        { name: "Docker", icon: "./icons/Docker.svg" },
+        { name: "Kubernetes", icon: "./icons/Kubernetes.svg" },
+        { name: "Helm", icon: "./icons/Helm.svg" }
+      ]
+    },
+    {
+      category: "Web Servers & Proxies",
+      items: [
+        { name: "Apache", icon: "./icons/Apache.svg" },
+        { name: "NGINX", icon: "./icons/NGINX.svg" }
       ]
     },
     {
       category: "DevOps & CI/CD",
       items: [
-        { name: "Argo CD", icon: "/icons/Argo-CD.svg" },
-        { name: "GitLab", icon: "/icons/GitLab.svg" },
-        { name: "GitHub", icon: "/icons/GitHub.svg" },
-        { name: "Git", icon: "/icons/Git.svg" },
-        { name: "Ansible", icon: "/icons/Ansible.svg" }
+        { name: "Argo CD", icon: "./icons/Argo-CD.svg" },
+        { name: "GitLab", icon: "./icons/GitLab.svg" },
+        { name: "GitHub", icon: "./icons/GitHub.svg" },
+        { name: "Git", icon: "./icons/Git.svg" },
+        { name: "Ansible", icon: "./icons/Ansible.svg" }
       ]
     },
     {
-      category: "Monitoring & Security",
+      category: "Monitoring & Observability",
       items: [
-        { name: "Grafana", icon: "/icons/Grafana.svg" },
-        { name: "Prometheus", icon: "/icons/Prometheus.svg" },
-        { name: "Vault", icon: "/icons/HashiCorp-Vault.svg" },
-        { name: "Helm", icon: "/icons/Helm.svg" }
+        { name: "Grafana", icon: "./icons/Grafana.svg" },
+        { name: "Prometheus", icon: "./icons/Prometheus.svg" },
+        { name: "OpenTelemetry", icon: "./icons/OpenTelemetry.svg" },
+        { name: "Datadog", icon: "./icons/datadog.svg" }
+      ]
+    },
+    {
+      category: "Service Management",
+      items: [
+        { name: "ServiceNow", icon: "./icons/Servicenow2.svg" },
+        { name: "Vault", icon: "./icons/HashiCorp-Vault.svg" }
       ]
     },
     {
       category: "Programming & Frameworks",
       items: [
-        { name: "Python", icon: "/icons/Python.svg" },
-        { name: "FastAPI", icon: "/icons/FastAPI.svg" },
-        { name: "Bash", icon: "/icons/Bash.svg" },
-        { name: "SQLAlchemy", icon: "/icons/SQLAlchemy.svg" }
+        { name: "Python", icon: "./icons/Python.svg" },
+        { name: "FastAPI", icon: "./icons/FastAPI.svg" },
+        { name: "Bash", icon: "./icons/Bash.svg" },
+        { name: "SQLAlchemy", icon: "./icons/SQLAlchemy.svg" }
       ]
     },
     {
       category: "Data & Storage",
       items: [
-        { name: "PostgreSQL", icon: "/icons/PostgresSQL.svg" },
-        { name: "MySQL", icon: "/icons/MySQL.svg" },
-        { name: "MongoDB", icon: "/icons/MongoDB.svg" }
+        { name: "PostgreSQL", icon: "./icons/PostgresSQL.svg" },
+        { name: "MySQL", icon: "./icons/MySQL.svg" },
+        { name: "MongoDB", icon: "./icons/MongoDB.svg" }
       ]
     },
     {
       category: "Infrastructure as Code",
       items: [
-        { name: "Packer", icon: "/icons/Packer.svg" },
-        { name: "Terraform", icon: "/icons/HashiCorp-Terraform.svg" }
+        { name: "Packer", icon: "./icons/Packer.svg" },
+        { name: "Terraform", icon: "./icons/HashiCorp-Terraform.svg" }
       ]
     }
   ];
+
+  const handleImageError = (e) => {
+    console.error(`Failed to load icon: ${e.target.src}`);
+    // Optionally set a fallback icon or hide the image
+    e.target.style.display = 'none';
+  };
 
   return (
     <div className="bg-gradient-to-b from-teal-950 to-emerald-950 min-h-screen p-8">
@@ -75,9 +101,12 @@ const TechnologyStack = () => {
                     className="flex items-center space-x-3 p-3 bg-teal-950/50 rounded-lg hover:bg-teal-950/70 transition-colors"
                   >
                     <img 
-                      src={tech.icon} 
+                      key={tech.id || `${tech.name}-icon`}
+                      src={tech.icon}
                       alt={tech.name}
-                      className="w-8 h-8 text-yellow-400"
+                      className="w-8 h-8"
+                      onError={handleImageError}
+                      loading="eager"
                     />
                     <span className="text-yellow-100">{tech.name}</span>
                   </div>
