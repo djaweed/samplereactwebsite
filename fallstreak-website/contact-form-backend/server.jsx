@@ -34,7 +34,7 @@ app.post("/send-email", async (req, res) => {
         // Send email
         await transporter.sendMail({
             from: email, // Sender's email (user's email from the form)
-            to: "donaldjaweed+fallstreak@gmail.com", // Your email address to receive the message
+            to: process.env.RECIPIENT_EMAIL, // Recipient email address from environment variable
             subject: `New Contact Form Submission from ${name}`,
             text: `
                 You have received a new contact form submission.
@@ -43,18 +43,17 @@ app.post("/send-email", async (req, res) => {
                 Email: ${email}
                 Phone: ${phone}
                 Message: ${message}
-            `, // Plain text body including the user's email, phone, and message
+            `,
             html: `
                 <p>You have received a new contact form submission.</p>
                 <p><strong>Name:</strong> ${name}</p>
                 <p><strong>Email:</strong> ${email}</p>
                 <p><strong>Phone:</strong> ${phone}</p>
                 <p><strong>Message:</strong> ${message}</p>
-            `, // HTML version of the message with the user's email, phone, and message
+            `,
             replyTo: email, // The user's email so you can reply directly to them
         });
 
-        // Respond with success if email sent
         res.status(200).json({ success: true, message: "Email sent successfully" });
     } catch (error) {
         console.error("Error sending email:", error);
@@ -65,13 +64,12 @@ app.post("/send-email", async (req, res) => {
     }
 });
 
-
 // Test endpoint for direct email check
 app.get("/test-email", async (req, res) => {
     try {
         await transporter.sendMail({
             from: process.env.SMTP_USER,
-            to: "donaldjaweed+fallstreak@gmail.com", // Replace with your email
+            to: process.env.RECIPIENT_EMAIL, // Recipient email address from environment variable
             subject: "Test Email",
             text: "This is a test email.",
         });
