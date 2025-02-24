@@ -8,6 +8,8 @@ const TechnologyStack = () => {
       category: "Infrastructure & Cloud",
       items: [
         { name: "AWS", icon: "./icons/AWS.svg" },
+        { name: "Azure", icon: "./icons/Azure.svg" },
+        { name: "Google Cloud", icon: "./icons/Google-Cloud.svg" },
         { name: "vSphere", icon: "./icons/vSphere.svg" },
         { name: "Red Hat", icon: "./icons/Red-Hat.svg" }
       ]
@@ -17,24 +19,19 @@ const TechnologyStack = () => {
       items: [
         { name: "Docker", icon: "./icons/Docker.svg" },
         { name: "Kubernetes", icon: "./icons/Kubernetes.svg" },
-        { name: "Helm", icon: "./icons/Helm.svg" }
+        { name: "Helm", icon: "./icons/Helm.svg" },
+        { name: "Rancher", icon: "./icons/Rancher.svg" }
       ]
     },
-    {
-      category: "Web Servers & Proxies",
-      items: [
-        { name: "Apache", icon: "./icons/Apache.svg" },
-        { name: "NGINX", icon: "./icons/NGINX.svg" }
-      ]
-    },
+
     {
       category: "DevOps & CI/CD",
       items: [
         { name: "Argo CD", icon: "./icons/Argo-CD.svg" },
-        { name: "GitLab", icon: "./icons/GitLab.svg" },
-        { name: "GitHub", icon: "./icons/GitHub.svg" },
-        { name: "Git", icon: "./icons/Git.svg" },
-        { name: "Ansible", icon: "./icons/Ansible.svg" }
+        { name: "Jenkins", icon: "./icons/Jenkins.svg" },
+        { name: "Azure DevOps", icon: "./icons/Azure-Devops.svg" },
+        { name: "GitLab CI/CD", icon: "./icons/GitLab.svg" },
+        { name: "GitHub Actions", icon: "./icons/GitHub.svg" },
       ]
     },
     {
@@ -43,7 +40,18 @@ const TechnologyStack = () => {
         { name: "Grafana", icon: "./icons/Grafana.svg" },
         { name: "Prometheus", icon: "./icons/Prometheus.svg" },
         { name: "OpenTelemetry", icon: "./icons/OpenTelemetry.svg" },
-        { name: "Datadog", icon: "./icons/datadog.svg" }
+        { name: "Datadog", icon: "./icons/datadog.svg" },
+        { name: "Jaeger", icon: "./icons/Jaeger-Tracing.svg" }
+      ]
+    },
+    {
+      category: "Security & DevSecOps",
+      items: [
+        { name: "Vault", icon: "./icons/HashiCorp-Vault.svg" },
+        { name: "SonarQube", icon: "./icons/SonarQube.svg" },
+        { name: "Wiz", icon: "./icons/wiz.svg" },
+        { name: "Splunk", icon: "./icons/splunk2.svg" },
+        { name: "Aqua", icon: "./icons/aquasec.svg" }
       ]
     },
     {
@@ -52,11 +60,11 @@ const TechnologyStack = () => {
         { name: "ServiceNow", icon: "./icons/Servicenow2.svg" },
         { name: "Snowflake", icon: "./icons/snowflake.svg" },
         { name: "Tableau", icon: "./icons/tableau.svg" },
-        { name: "Vault", icon: "./icons/HashiCorp-Vault.svg" }
+        { name: "Databricks", icon: "./icons/databricks.svg" },
       ]
     },
     {
-      category: "Programming & Frameworks",
+      category: "Languages & Frameworks",
       items: [
         { name: "Python", icon: "./icons/Python.svg" },
         { name: "FastAPI", icon: "./icons/FastAPI.svg" },
@@ -65,20 +73,38 @@ const TechnologyStack = () => {
       ]
     },
     {
-      category: "Data & Storage",
+      category: "Databases & Storage",
       items: [
         { name: "PostgreSQL", icon: "./icons/PostgresSQL.svg" },
         { name: "MySQL", icon: "./icons/MySQL.svg" },
-        { name: "MongoDB", icon: "./icons/MongoDB.svg" }
+        { name: "MongoDB", icon: "./icons/MongoDB.svg" },
+        { name: "Redis", icon: "./icons/Redis.svg" }
       ]
     },
     {
-      category: "Infrastructure as Code",
+      category: "I.A.C. & Config Management",
       items: [
         { name: "Packer", icon: "./icons/Packer.svg" },
-        { name: "Terraform", icon: "./icons/HashiCorp-Terraform.svg" }
+        { name: "Terraform", icon: "./icons/HashiCorp-Terraform.svg" },
+        { name: "Ansible", icon: "./icons/Ansible.svg" },
       ]
-    }
+    },
+
+    {
+        category: "Version Control ",
+        items: [
+          { name: "GitLab", icon: "./icons/GitLab.svg" },
+          { name: "GitHub", icon: "./icons/GitHub.svg" },
+          { name: "Git", icon: "./icons/Git.svg" },
+        ]
+      },
+      {
+        category: "Web Servers & Proxies",
+        items: [
+          { name: "Apache", icon: "./icons/Apache.svg" },
+          { name: "NGINX", icon: "./icons/NGINX.svg" }
+        ]
+      },
   ];
 
   useEffect(() => {
