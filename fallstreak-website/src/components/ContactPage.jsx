@@ -45,7 +45,7 @@ const ContactPage = () => {
           </Link>
           <div className="space-x-8">
             <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
-            <Link to="/services" className="text-yellow-500">Services</Link>
+            <Link to="/services" className="hover:text-yellow-500 transition-colors">Services</Link>
             <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
             <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
             <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>

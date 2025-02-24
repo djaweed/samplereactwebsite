@@ -5,20 +5,15 @@ import { Link } from 'react-router-dom';
 const AboutPage = () => {
   const teamMembers = [
     {
-      name: 'Sarah Chen',
-      role: 'CEO & Founder',
-      description: 'Cloud architecture expert with 15+ years experience in enterprise solutions.'
+      name: 'Donald',
+      role: 'Founder',
+      description: '5+ years experience in enterprise solutions. AWS Solutions Architect Professional Certified',
     },
     {
-      name: 'Marcus Rodriguez',
+      name: 'Michael',
       role: 'CTO',
-      description: 'Former tech lead at major cloud providers, specialized in scalable systems.'
+      description: 'Former Senior DevOps lead at Deloitte with 10+ years of experience. 11X AWS Certified.',
     },
-    {
-      name: 'Aisha Patel',
-      role: 'Head of DevOps',
-      description: 'DevOps pioneer with expertise in automation and cloud-native technologies.'
-    }
   ];
 
   return (
@@ -31,8 +26,8 @@ const AboutPage = () => {
             <span className="text-2xl font-bold">Fallstreak Cloud</span>
           </Link>
           <div className="space-x-8">
-          <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
-            <Link to="/services" className="text-yellow-500">Services</Link>
+            <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
+            <Link to="/services" className="hover:text-yellow-500 transition-colors" >Services</Link>
             <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
             <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
             <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
@@ -99,19 +94,23 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Team Section */}
-      <section className="container mx-auto px-6 py-24">
-        <h2 className="text-3xl font-bold text-center mb-16">Leadership Team</h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {teamMembers.map((member) => (
-            <div key={member.name} className="bg-teal-900/50 p-6 rounded-xl border border-emerald-800/30">
-              <h3 className="text-xl font-semibold mb-2">{member.name}</h3>
-              <p className="text-yellow-600 mb-4">{member.role}</p>
-              <p className="text-yellow-100/90">{member.description}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+{/* Team Section */}
+<section className="container mx-auto px-6 py-24">
+  <h2 className="text-3xl font-bold text-center mb-16">Leadership Team</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+    {teamMembers.map((member) => (
+      <div
+        key={member.name}
+        className="bg-teal-900/50 p-6 rounded-xl border border-emerald-800/30 flex flex-col items-center justify-center max-w-xs mx-auto"
+      >
+        <h3 className="text-xl font-semibold mb-2 text-center">{member.name}</h3>
+        <p className="text-yellow-600 mb-4 text-center">{member.role}</p>
+        <p className="text-yellow-100/90 text-center">{member.description}</p>
+      </div>
+    ))}
+  </div>
+</section>
+
 
       {/* Footer */}
       <footer className="bg-teal-950 py-12 border-t border-emerald-800/30">
