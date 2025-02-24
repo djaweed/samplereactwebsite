@@ -3,7 +3,7 @@ name: Deploy Website
 on:
   push:
     branches:
-      - main  # or your deployment branch
+      - main
 
 jobs:
   deploy:
@@ -12,21 +12,19 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # If your build artifacts need to be created:
       - name: Install dependencies
         run: npm install
+        working-directory: awsiq/fallstreak-website
 
       - name: Build project
         run: npm run build
+        working-directory: awsiq/fallstreak-website
 
       - name: Deploy to server
         run: |
-          cd /home/ec2-user/awsiq/fallstreak-website
-          # Pull the latest changes from your repository
+          cd awsiq/fallstreak-website
           git pull origin main
-          # Install any new dependencies
           npm install
-          # Optional: build if your project needs it
           npm run build
-          # Restart the service so changes take effect
           sudo systemctl restart reactapp.service
+        shell: bash
