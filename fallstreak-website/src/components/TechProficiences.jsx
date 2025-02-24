@@ -231,7 +231,7 @@ const TechnologyStack = () => {
         },
         {
           name: "ELK Stack",
-          icon: "./icons/ELK.svg",
+          icon: "./icons/elkstack.svg",
           description: "ELK (Elasticsearch, Logstash, Kibana) is a popular logging and analytics solution.",
           features: [
             "Powerful search",
