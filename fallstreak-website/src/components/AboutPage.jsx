@@ -12,7 +12,7 @@ const AboutPage = () => {
     {
       name: 'Michael',
       role: 'CTO',
-      description: 'Former Senior DevOps lead at Deloitte with 10+ years of experience. 11X AWS Certified.',
+      description: 'Former Senior DevOps lead at Deloitte with 10+ years of industry experience. 11X AWS Certified.',
     },
   ];
 

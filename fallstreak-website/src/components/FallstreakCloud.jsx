@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Cloud, Server, Settings, BarChart3, Code2, Lock } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const FallstreakCloud = () => {
   const [activeService, setActiveService] = useState(null);
@@ -59,25 +60,43 @@ const FallstreakCloud = () => {
       </header>
 
       {/* Services Section */}
-      <section className="container mx-auto px-6 py-24">
-        <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {services.map((service) => (
-            <div
-              key={service.title}
-              className="bg-teal-900/50 p-6 rounded-xl hover:bg-teal-800/50 transition-colors cursor-pointer border border-emerald-800/30"
-              onMouseEnter={() => setActiveService(service.title)}
-              onMouseLeave={() => setActiveService(null)}
-            >
-              <div className="flex flex-col items-center text-center">
-                {service.icon}
-                <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
-                <p className="text-yellow-100/90">{service.description}</p>
-              </div>
-            </div>
-          ))}
+<section className="container mx-auto px-6 py-24">
+  <h2 className="text-4xl font-bold text-center mb-16">Our Services</h2>
+  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+    {services.map((service) => (
+      <motion.div
+        key={service.title}
+        className="bg-teal-900/50 p-6 rounded-xl transition-colors cursor-pointer border border-emerald-800/30"
+        onMouseEnter={() => setActiveService(service.title)}
+        onMouseLeave={() => setActiveService(null)}
+        whileHover={{ backgroundColor: 'rgba(245, 158, 11, 0.2)' }}  // New hover color
+      >
+        <div className="flex flex-col items-center text-center">
+          {service.icon}
+          <h3 className="text-xl font-semibold mb-4">{service.title}</h3>
+          <p className="text-yellow-100/90">{service.description}</p>
+          <AnimatePresence>
+            {activeService === service.title && (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: 10 }}
+                className="mt-4"
+              >
+                <Link
+                  to="/services"
+                  className="inline-block bg-yellow-600 px-4 py-2 rounded text-teal-950 font-bold hover:bg-yellow-500 transition-colors"
+                >
+                  Explore {service.title}
+                </Link>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
-      </section>
+      </motion.div>
+    ))}
+  </div>
+</section>
 
       {/* Why Choose Us Section */}
       <section className="bg-teal-900/30 py-24 border-y border-emerald-800/30">
@@ -111,7 +130,7 @@ const FallstreakCloud = () => {
             Contact us today to discuss how we can help transform your cloud infrastructure
           </p>
           <div className="flex justify-center">
-            <Link to ="/contact" className="bg-yellow-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition-colors">
+            <Link to="/contact" className="bg-yellow-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition-colors">
               Contact Us
             </Link>
           </div>
