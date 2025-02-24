@@ -38,10 +38,10 @@ const FallstreakCloud = () => {
             <span className="text-2xl font-bold">Fallstreak Cloud</span>
           </div>
           <div className="space-x-8">
-            <button className="hover:text-yellow-500 transition-colors">Services</button>
+            <Link to="/services" className="hover:text-yellow-500 transition-colors">Services</Link>  
             <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>  
             <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>      
-            <button className="hover:text-yellow-500 transition-colors">Contact</button>
+            <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
             <button className="bg-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors">
               Get Started
             </button>
@@ -55,9 +55,9 @@ const FallstreakCloud = () => {
           <p className="text-xl text-yellow-100 mb-8">
             Expert cloud solutions that drive innovation, efficiency, and growth for your business
           </p>
-          <button className="bg-yellow-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition-colors">
+          <Link to="/services" className="bg-yellow-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition-colors">
             Explore Our Services
-          </button>
+          </Link>
         </div>
       </header>
 
@@ -114,9 +114,9 @@ const FallstreakCloud = () => {
             Contact us today to discuss how we can help transform your cloud infrastructure
           </p>
           <div className="flex justify-center">
-            <button className="bg-yellow-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition-colors">
+            <Link to ="/contact" className="bg-yellow-600 px-8 py-4 rounded-lg text-lg font-semibold hover:bg-yellow-500 transition-colors">
               Contact Us
-            </button>
+            </Link>
           </div>
         </div>
       </section>
