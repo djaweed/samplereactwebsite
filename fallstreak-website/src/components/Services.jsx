@@ -54,6 +54,12 @@ const services = [
     detailedDescription: 'Our Security services provide enterprise-grade protection for your digital assets. We implement multi-layered security protocols, continuous monitoring, vulnerability assessments, and compliance measures to safeguard your infrastructure and data against emerging threats.', 
     icon: Shield 
   },
+  {
+    name: 'MLOps',
+    description: 'Streamline machine learning workflows from development to deployment.',
+    detailedDescription: 'Our MLOps services provide end-to-end management of your machine learning lifecycle. We implement automated pipelines for model training, testing, and deployment while ensuring reproducibility, scalability, and monitoring. Our approach bridges the gap between data science and operations, accelerating time-to-value for your AI initiatives and maintaining model performance in production environments.',
+    icon: Brain
+  },
   { 
     name: 'A.I.', 
     description: 'Leverage artificial intelligence to drive innovation and efficiency.', 
