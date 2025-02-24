@@ -1,19 +1,32 @@
-name: CI/CD Pipeline
+name: Deploy Website
 
 on:
   push:
     branches:
-      - main
-  pull_request:
-    branches:
-      - main
+      - main  # or your deployment branch
 
 jobs:
-  build:
+  deploy:
     runs-on: self-hosted
     steps:
-      - name: Checkout Repository
+      - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Run a Sample Command
-        run: echo "Hello from the self-hosted runner!"
+      # If your build artifacts need to be created:
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build project
+        run: npm run build
+
+      - name: Deploy to server
+        run: |
+          cd /home/ec2-user/awsiq/fallstreak-website
+          # Pull the latest changes from your repository
+          git pull origin main
+          # Install any new dependencies
+          npm install
+          # Optional: build if your project needs it
+          npm run build
+          # Restart the service so changes take effect
+          sudo systemctl restart reactapp.service
