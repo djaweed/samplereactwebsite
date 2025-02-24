@@ -1,5 +1,5 @@
-#Some Changes I will make in the future
+# Some Changes I will make in the future
 1) Global Styling instead of inline
 
-#Requirements
+# Requirements
 Node 20+
