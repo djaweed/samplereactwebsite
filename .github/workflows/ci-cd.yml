@@ -14,14 +14,14 @@ jobs:
 
       - name: Sync repository to website root
         run: |
-          echo "Syncing repository to /home/awsiq/fallstreak-website"
-          rsync -av --delete "$GITHUB_WORKSPACE/" "/home/awsiq/fallstreak-website/"
+          echo "Syncing repository to /home/ec2-user/awsiq/fallstreak-website"
+          rsync -av --delete "$GITHUB_WORKSPACE/" "/home/ec2-user/awsiq/fallstreak-website/"
 
       - name: Deploy to website
         run: |
           set -ex
           # Change to the website's root directory
-          cd /home/awsiq/fallstreak-website
+          cd /home/ec2-user/awsiq/fallstreak-website
           echo "Current directory: $(pwd)"
           ls -la
           # Install dependencies and build the project
