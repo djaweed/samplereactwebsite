@@ -3,24 +3,32 @@ name: Deploy Website
 on:
   push:
     branches:
-      - main
+      - main  # Trigger deployment on pushes to main
 
 jobs:
   deploy:
     runs-on: self-hosted
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Sync repository to website root
+        run: |
+          echo "Syncing repository to /home/awsiq/fallstreak-website"
+          rsync -av --delete "$GITHUB_WORKSPACE/" "/home/awsiq/fallstreak-website/"
+
       - name: Deploy to website
         run: |
           set -ex
-          echo "Changing directory to /home/awsiq/fallstreak-website"
+          # Change to the website's root directory
           cd /home/awsiq/fallstreak-website
           echo "Current directory: $(pwd)"
           ls -la
-          echo "Pulling latest code"
-          git pull origin main
+          # Install dependencies and build the project
           echo "Installing dependencies"
           npm install
           echo "Building project"
           npm run build
+          # Restart the service to apply the new changes
           echo "Restarting service"
           sudo systemctl restart reactapp.service
