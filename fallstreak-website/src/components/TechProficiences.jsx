@@ -401,7 +401,20 @@ const TechnologyStack = () => {
             "Strong community"
           ],
           link: "https://reactjs.org/"
-        }
+        },
+
+        {
+            name: "Bash",
+            icon: "./icons/Bash.svg",
+            description: "Bash (Bourne Again Shell) is a powerful Unix shell and command language interpreter that serves as the default shell for most Linux distributions and macOS.",
+            features: [
+                "Command line scripting and automation",
+                "Shell programming with variables and functions",
+                "Process management and job control",
+                "Advanced text processing and file manipulation"
+            ],
+            link: "https://www.gnu.org/software/bash/"
+          }
       ]
     },
     {
