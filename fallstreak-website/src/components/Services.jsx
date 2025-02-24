@@ -1,16 +1,16 @@
 import React from 'react';
-import { Cloud, Server, Settings, Code, Database, Layers, ArrowRight, Shield, Cpu, BarChart2, ArrowRightLeft } from 'lucide-react';
+import { Cloud, Server, Settings, Code, Database, Layers, Shield, Cpu, BarChart2, ArrowRightLeft, SlidersHorizontal } from 'lucide-react';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
 const services = [
   { 
-    name: 'Cloud Solutions Architecture', 
     name: 'Cloud Migration',
     description: 'Seamlessly transition your workloads to the cloud with minimal disruption.',
     detailedDescription: 'Our Cloud Migration service provides a smooth path to modernize your infrastructure. We assess your current systems, develop a tailored migration strategy, and execute the transition with minimal downtime. Our experts handle the complexities of moving applications, data, and services while ensuring security and compliance throughout the process.',
     icon: ArrowRightLeft
   },
+
   { 
     name: 'Cloud Engineering', 
     description: 'Building and managing cloud-native applications and infrastructure.',
@@ -54,12 +54,14 @@ const services = [
     detailedDescription: 'Our Security services provide enterprise-grade protection for your digital assets. We implement multi-layered security protocols, continuous monitoring, vulnerability assessments, and compliance measures to safeguard your infrastructure and data against emerging threats.', 
     icon: Shield 
   },
+
   {
     name: 'MLOps',
     description: 'Streamline machine learning workflows from development to deployment.',
     detailedDescription: 'Our MLOps services provide end-to-end management of your machine learning lifecycle. We implement automated pipelines for model training, testing, and deployment while ensuring reproducibility, scalability, and monitoring. Our approach bridges the gap between data science and operations, accelerating time-to-value for your AI initiatives and maintaining model performance in production environments.',
-    icon: Brain
+    icon: SlidersHorizontal
   },
+
   { 
     name: 'A.I.', 
     description: 'Leverage artificial intelligence to drive innovation and efficiency.', 
