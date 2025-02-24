@@ -17,22 +17,21 @@ const AboutPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-teal-950 to-emerald-950 text-white">
-      {/* Navigation */}
-      <header className="container mx-auto px-6 py-8">
-        <nav className="flex items-center justify-between">
-          <Link to="/" className="flex items-center space-x-2">
-            <Cloud className="w-8 h-8 text-yellow-600" />
-            <span className="text-2xl font-bold">Fallstreak Cloud</span>
-          </Link>
-          <div className="space-x-8">
-            <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
-            <Link to="/services" className="hover:text-yellow-500 transition-colors" >Services</Link>
-            <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
-            <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
-            <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
-          </div>
-        </nav>
+<div className="min-h-screen bg-gradient-to-b from-teal-950 to-emerald-950 text-white">
+  {/* Hero Section */}
+  <header className="container mx-auto px-6 py-16">
+    <nav className="flex items-center justify-between mb-16">
+      <div className="flex items-center space-x-2">
+        <img src="/logo.webp" alt="Fallstreak Cloud Logo" className="w-8 h-8" />
+        <span className="text-2xl font-bold">Fallstreak Cloud</span>
+      </div>
+      <div className="space-x-8">
+        <Link to="/services" className="hover:text-yellow-500 transition-colors">Services</Link>
+        <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
+        <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
+        <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
+      </div>
+    </nav>
       </header>
 
       {/* Hero Section */}
