@@ -7,7 +7,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted, ec2-runner]
+    runs-on: self-hosted
 
     steps:
       # Clone your repository on the runner.
