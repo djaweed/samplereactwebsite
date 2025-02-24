@@ -9,22 +9,18 @@ jobs:
   deploy:
     runs-on: self-hosted
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Install dependencies
-        run: npm install
-        working-directory: awsiq/fallstreak-website
-
-      - name: Build project
-        run: npm run build
-        working-directory: awsiq/fallstreak-website
-
-      - name: Deploy to server
+      - name: Deploy to website
         run: |
-          cd ../fallstreak-website/
+          set -ex
+          echo "Changing directory to /home/awsiq/fallstreak-website"
+          cd /home/awsiq/fallstreak-website
+          echo "Current directory: $(pwd)"
+          ls -la
+          echo "Pulling latest code"
           git pull origin main
+          echo "Installing dependencies"
           npm install
+          echo "Building project"
           npm run build
+          echo "Restarting service"
           sudo systemctl restart reactapp.service
-        shell: bash
