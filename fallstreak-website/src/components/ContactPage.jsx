@@ -1,8 +1,39 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Cloud, Users, Award, Building2, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ContactPage = () => {
+  const [formData, setFormData] = useState({ name: "", email: "", phone: "", message: "" });
+  const [status, setStatus] = useState(""); // State to hold submission status
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault(); // Prevent default form behavior
+    setStatus("Sending...");
+
+    try {
+      const response = await fetch("http://localhost:3500/send-email", { // Backend endpoint
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      const data = await response.json();
+      if (data.success) {
+        setStatus("Message sent successfully!");
+        setFormData({ name: "", email: "", phone: "", message: "" });
+      } else {
+        setStatus("Failed to send message. Please try again.");
+      }
+    } catch (error) {
+      setStatus("Error sending message.");
+    }
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-teal-950 to-emerald-950 text-white">
       {/* Navigation */}
@@ -13,11 +44,11 @@ const ContactPage = () => {
             <span className="text-2xl font-bold">Fallstreak Cloud</span>
           </Link>
           <div className="space-x-8">
-          <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
-          <Link to="/services" className="text-yellow-500">Services</Link>
-          <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
-          <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
-          <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
+            <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
+            <Link to="/services" className="text-yellow-500">Services</Link>
+            <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
+            <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
+            <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
           </div>
         </nav>
       </header>
@@ -36,14 +67,51 @@ const ContactPage = () => {
       <section className="container mx-auto px-6 py-24">
         <div className="max-w-4xl mx-auto">
           <h2 className="text-3xl font-bold text-center mb-16">Send Us a Message</h2>
-          <form className="space-y-6">
-            <input type="text" placeholder="Your Name" className="w-full p-4 rounded-lg bg-teal-900/50 border border-emerald-800/30" />
-            <input type="email" placeholder="Your Email" className="w-full p-4 rounded-lg bg-teal-900/50 border border-emerald-800/30" />
-            <textarea placeholder="Your Message" className="w-full p-4 rounded-lg bg-teal-900/50 border border-emerald-800/30" rows="4"></textarea>
-            <button type="submit" className="w-full py-3 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-500 transition-colors">
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <input
+              type="text"
+              name="name"
+              placeholder="Your Name"
+              value={formData.name}
+              onChange={handleChange}
+              required
+              className="w-full p-4 rounded-lg bg-teal-900/50 border border-emerald-800/30"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Your Email"
+              value={formData.email}
+              onChange={handleChange}
+              required
+              className="w-full p-4 rounded-lg bg-teal-900/50 border border-emerald-800/30"
+            />
+            <input
+              type="tel"
+              name="phone"
+              placeholder="Your Phone Number"
+              value={formData.phone}
+              onChange={handleChange}
+              required
+              className="w-full p-4 rounded-lg bg-teal-900/50 border border-emerald-800/30"
+            />
+            <textarea
+              name="message"
+              placeholder="Your Message"
+              value={formData.message}
+              onChange={handleChange}
+              required
+              className="w-full p-4 rounded-lg bg-teal-900/50 border border-emerald-800/30"
+              rows="4"
+            />
+            <button
+              type="submit"
+              className="w-full py-3 bg-yellow-600 text-white font-bold rounded-lg hover:bg-yellow-500 transition-colors"
+            >
               Send Message
             </button>
           </form>
+          <p className="text-center mt-4 text-lg">{status}</p>
         </div>
       </section>
 
