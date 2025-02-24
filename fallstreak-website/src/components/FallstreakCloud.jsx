@@ -39,12 +39,9 @@ const FallstreakCloud = () => {
           </div>
           <div className="space-x-8">
             <Link to="/services" className="hover:text-yellow-500 transition-colors">Services</Link>  
-            <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>  
             <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>      
+            <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>  
             <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
-            <button className="bg-yellow-600 px-4 py-2 rounded-lg hover:bg-yellow-500 transition-colors">
-              Get Started
-            </button>
           </div>
         </nav>
 

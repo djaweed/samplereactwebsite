@@ -13,10 +13,11 @@ const ContactPage = () => {
             <span className="text-2xl font-bold">Fallstreak Cloud</span>
           </Link>
           <div className="space-x-8">
-            <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
-            <Link to="/services" className="hover:text-yellow-500 transition-colors">Services</Link>
-            <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
-            <Link to="/contact" className="text-yellow-500">Contact</Link>
+          <Link to="/" className="hover:text-yellow-500 transition-colors">Home</Link>
+          <Link to="/services" className="text-yellow-500">Services</Link>
+          <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
+          <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
+          <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
           </div>
         </nav>
       </header>

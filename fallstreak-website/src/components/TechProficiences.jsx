@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const TechnologyStack = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -97,6 +98,9 @@ const TechnologyStack = () => {
           transition-all duration-1000 ease-out`}>
           Technology Stack
         </h2>
+        <div className="flex justify-center mb-8">
+          <Link to="/" className="text-lg text-yellow-300 hover:text-yellow-500 transition duration-300">← Back to Home</Link>
+        </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {technologies.map((category, index) => (
             <div
@@ -123,7 +127,6 @@ const TechnologyStack = () => {
                       transform-gpu"
                   >
                     <img 
-                      key={tech.id || `${tech.name}-icon`}
                       src={tech.icon}
                       alt={tech.name}
                       className="w-8 h-8 transform hover:rotate-12 transition-transform duration-300"
