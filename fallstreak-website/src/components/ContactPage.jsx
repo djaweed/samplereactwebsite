@@ -16,7 +16,7 @@ const ContactPage = () => {
     setStatus("Sending...");
 
     try {
-      const response = await fetch("http://localhost:3500/send-email", { // Backend endpoint
+      const response = await fetch("/send-email", { // Using relative URL
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
@@ -30,26 +30,27 @@ const ContactPage = () => {
         setStatus("Failed to send message. Please try again.");
       }
     } catch (error) {
+      console.error(error);
       setStatus("Error sending message.");
     }
   };
 
   return (
-<div className="min-h-screen bg-gradient-to-b from-teal-950 to-emerald-950 text-white">
-  {/* Hero Section */}
-  <header className="container mx-auto px-6 py-16">
-    <nav className="flex items-center justify-between mb-16">
-      <div className="flex items-center space-x-2">
-        <img src="/logo.webp" alt="Fallstreak Cloud Logo" className="w-8 h-8" />
-        <span className="text-2xl font-bold">Fallstreak Cloud</span>
-      </div>
-      <div className="space-x-8">
-        <Link to="/services" className="hover:text-yellow-500 transition-colors">Services</Link>
-        <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
-        <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
-        <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
-      </div>
-    </nav>
+    <div className="min-h-screen bg-gradient-to-b from-teal-950 to-emerald-950 text-white">
+      {/* Header */}
+      <header className="container mx-auto px-6 py-16">
+        <nav className="flex items-center justify-between mb-16">
+          <div className="flex items-center space-x-2">
+            <img src="/logo.webp" alt="Fallstreak Cloud Logo" className="w-8 h-8" />
+            <span className="text-2xl font-bold">Fallstreak Cloud</span>
+          </div>
+          <div className="space-x-8">
+            <Link to="/services" className="hover:text-yellow-500 transition-colors">Services</Link>
+            <Link to="/tech" className="hover:text-yellow-500 transition-colors">Tech</Link>
+            <Link to="/about" className="hover:text-yellow-500 transition-colors">About</Link>
+            <Link to="/contact" className="hover:text-yellow-500 transition-colors">Contact</Link>
+          </div>
+        </nav>
       </header>
 
       {/* Hero Section */}

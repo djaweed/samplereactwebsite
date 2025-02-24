@@ -13,7 +13,7 @@ const transporter = nodemailer.createTransport({
     port: process.env.SMTP_PORT, // 587 for Gmail (non-SSL)
     secure: false, // Use TLS
     auth: {
-        user: process.env.SMTP_USER, // Your email address (e.g., your-email@gmail.com)
+        user: process.env.SMTP_USER, // Your email address
         pass: process.env.SMTP_PASS, // Your email password (or app-specific password)
     },
 });
@@ -51,7 +51,7 @@ app.post("/send-email", async (req, res) => {
                 <p><strong>Phone:</strong> ${phone}</p>
                 <p><strong>Message:</strong> ${message}</p>
             `,
-            replyTo: email, // The user's email so you can reply directly to them
+            replyTo: email, // So you can reply directly to the user
         });
 
         res.status(200).json({ success: true, message: "Email sent successfully" });
@@ -69,7 +69,7 @@ app.get("/test-email", async (req, res) => {
     try {
         await transporter.sendMail({
             from: process.env.SMTP_USER,
-            to: process.env.RECIPIENT_EMAIL, // Recipient email address from environment variable
+            to: process.env.RECIPIENT_EMAIL, // Using the environment variable for recipient
             subject: "Test Email",
             text: "This is a test email.",
         });
